@@ -32,7 +32,7 @@ export default function Home() {
         <div className="home__filters">
           <SearchBar />
         </div>
-        <div className="mt-6 gap-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-6 gap-4 !mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {
             data.map((car: CarItemType) => (
               <AutoCard
@@ -43,11 +43,6 @@ export default function Home() {
               />
             ))
           }
-          {/* <AutoCard
-          imgUrl= {"/hero.png" }
-          title="Toyota"
-          amount={100}
-        /> */}
         </div>
       </div>
     </main>

@@ -17,13 +17,13 @@ function AutoCard(props: PropsType) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
       whileHover={{ scale: 1.05 }}
-      className="border border-gray-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-100 flex flex-col gap-3 p-4 w-[320px] bg-white cursor-pointer"
+      className="border border-gray-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-100 flex flex-col gap-3 p-4 bg-white cursor-pointer"
     >
       <Image
         src={props.imgUrl}
         alt="car image"
         width={300}
-        height={200}
+        height={300}
         className="rounded-lg object-cover transition-all duration-300"
       />
       <h4 className="text-lg font-semibold text-gray-800">{props.title}</h4>

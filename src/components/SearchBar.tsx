@@ -12,7 +12,7 @@ function SearchBar() {
 
   return (
     <form className='searchbar' onSubmit={hanleSearch}>
-        <div className='searchbar__item'>
+        <div className='searchbar__item bg-slate-100 px-2 rounded-full'>
             <SearchManufacturer
             manufacturer = {manufacturer}
             setManufacturer = {setManufacturer}
