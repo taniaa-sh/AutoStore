@@ -1,12 +1,26 @@
-import CustomFilter from "@/components/CustomFilter";
+"use client";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
-import { fetchCars } from "../../utils";
+import AutoCard from "@/components/AutoCard";
+import { useEffect, useState } from "react";
 
+interface CarItemType {
+  id: string;
+  image: string;
+  amount: number;
+  price_usd: number;
+  model: string;
+}
 
-export default async function Home() {
-  const allCars = await fetchCars();
-  console.log(allCars)
+export default function Home() {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch('/data/data.json')
+      .then(res => res.json())
+      .then(json => setData(json))
+      .catch(err => console.error('خطا در خواندن JSON:', err));
+  }, []);
+
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -17,10 +31,23 @@ export default async function Home() {
         </div>
         <div className="home__filters">
           <SearchBar />
-          <div className="home__filter-container">
-            <CustomFilter />
-            <CustomFilter />
-          </div>
+        </div>
+        <div className="mt-6 gap-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {
+            data.map((car: CarItemType) => (
+              <AutoCard
+                title={car.model}
+                key={car.id}
+                imgUrl={car.image}
+                amount={car.price_usd}
+              />
+            ))
+          }
+          {/* <AutoCard
+          imgUrl= {"/hero.png" }
+          title="Toyota"
+          amount={100}
+        /> */}
         </div>
       </div>
     </main>
