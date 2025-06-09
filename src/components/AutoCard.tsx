@@ -22,9 +22,9 @@ function AutoCard(props: PropsType) {
       <Image
         src={props.imgUrl}
         alt="car image"
-        width={300}
-        height={300}
-        className="rounded-lg object-cover transition-all duration-300"
+        width={200}
+        height={200}
+        className="rounded-lg object-cover transition-all duration-300 w-full h-40"
       />
       <h4 className="text-lg font-semibold text-gray-800">{props.title}</h4>
       <h4 className="text-md font-medium text-gray-800">Cost: <span className="font-bold text-purple-700">{props.amount} $</span></h4>
