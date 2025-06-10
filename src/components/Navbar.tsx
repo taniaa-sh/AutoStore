@@ -30,7 +30,7 @@ function Navbar() {
                 alt='logo'
                 className='object-contain'
               />
-              <span className='rounded-full bg-blue-600 text-white w-5 h-5 flex justify-center items-center'>{cart.length}</span>
+              <span className='rounded-full bg-blue-600 text-white w-5 h-5 flex justify-center items-center'>{cart.map((item) => item.amount).reduce((a, b) => a + b, 0)}</span>
             </Link>
           </div>
           <CustomButton
