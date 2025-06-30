@@ -19,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative">
         <Navbar />
-        {children}
+        <div className="min-h-[700px]">
+          {children}
+        </div>
         <ToastContainer
           position="top-right"
           autoClose={3000}

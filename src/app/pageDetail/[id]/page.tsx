@@ -61,7 +61,7 @@ function ProductDetail() {
         const g = dataPixels[i + 1];
         const b = dataPixels[i + 2];
         const alpha = dataPixels[i + 3];
-        if (r > 200 && g > 200 && b > 200 && alpha > 100) {
+        if (r > 150 && g > 150 && b > 150 && alpha > 100) {
           dataPixels[i] = targetColor.r;
           dataPixels[i + 1] = targetColor.g;
           dataPixels[i + 2] = targetColor.b;

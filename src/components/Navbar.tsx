@@ -4,10 +4,13 @@ import Link from 'next/link'
 import React from 'react'
 import CustomButton from './CustomButton'
 import { useCartStore } from '../../stores/useCartStore';
+import { useRouter } from 'next/navigation'
 
 function Navbar() {
 
   const cart = useCartStore((state) => state.cart);
+  const router = useRouter();
+
   return (
     <>
       <header className="absolute w-full z-10">
@@ -37,6 +40,9 @@ function Navbar() {
             title="Sign In"
             btnType="button"
             containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]"
+            handleClick={() => {
+              router.push("/signin");
+            }}
           />
         </nav>
       </header>
