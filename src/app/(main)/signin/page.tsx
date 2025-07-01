@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 function Login() {
 
@@ -12,34 +13,41 @@ function Login() {
   const [password, setPassword] = useState<string>("")
   const [showPassword, setShowPassword] = useState<boolean>(false)
   const [loading, setLoading] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!email) {
       toast.error(".Email is required");
       return;
-    }
-    if (!password) {
+    } else if (!password) {
       toast.error(".Password is required");
       return;
-    }
-    if (!email.includes("@")) {
+    } else if (!email.includes("@")) {
       toast.error(".Enter a valid email");
       return;
-    }
-    if (password.length < 8) {
+    } else if (password.length < 8) {
       toast.error(".Password must be at least 8 characters long");
       return;
-    }
-
-    setLoading(true);
-    setTimeout(() => {
-      console.log("Login successful");
+    } else {
+      // setLoading(true);
+      // const result = await signIn("credentials", {
+      //   redirect: false,
+      //   email,
+      //   password,
+      //   remember: rememberMe,
+      // })
+      // if (result?.ok) {
+      toast.success("Login successful!");
+      router.push("/");
+      // toast.error("Login failed.");
       setLoading(false);
-    }, 2000);
-  };
-
+      // }
+    };
+  }
 
   return (
     <main className="bg-gradient-to-br from-blue-300 via-white to-blue-50 p-6 min-h-screen">
@@ -83,6 +91,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               type={showPassword ? "text" : "password"}
               id="password"
+              maxLength={20}
               placeholder="Type your password"
               className="w-full h-12 px-4 py-2 pr-12 text-xs md:text-base border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-600"
             />
@@ -104,12 +113,17 @@ function Login() {
               <input
                 type="checkbox"
                 id="remember"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
               />
               <label htmlFor="remember" className="text-xs md:text-sm ml-1">Remember me</label>
             </div>
-            <a href="/forgot-password" className="text-blue-600 text-xs md:text-sm hover:underline">
+            <p
+              className="text-blue-600 text-xs md:text-sm hover:underline cursor-pointer select-none"
+              onClick={() => router.push("/forgotPass")}
+            >
               Forgot Password?
-            </a>
+            </p>
           </div>
 
           {/* Sign In */}
