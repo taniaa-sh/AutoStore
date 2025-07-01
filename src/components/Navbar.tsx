@@ -36,14 +36,19 @@ function Navbar() {
               <span className='rounded-full bg-blue-600 text-white w-5 h-5 flex justify-center items-center'>{cart.map((item) => item.amount).reduce((a, b) => a + b, 0)}</span>
             </Link>
           </div>
-          <CustomButton
-            title="Sign In"
-            btnType="button"
-            containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]"
-            handleClick={() => {
-              router.push("/signin");
-            }}
-          />
+          <div className='flex'>
+            <Link href="/about" className='flex justify-center items-center text-blue-600'>
+              about Us
+            </Link>
+            <CustomButton
+              title="Sign In"
+              btnType="button"
+              containerStyles="text-primary-blue rounded-full bg-white min-w-[130px]"
+              handleClick={() => {
+                router.push("/signin");
+              }}
+            />
+          </div>
         </nav>
       </header>
     </>
