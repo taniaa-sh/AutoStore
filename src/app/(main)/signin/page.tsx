@@ -42,7 +42,8 @@ function Login() {
       // })
       // if (result?.ok) {
       toast.success("Login successful!");
-      router.push("/");
+      router.replace("/");
+      window.location.href = "/"
       // toast.error("Login failed.");
       setLoading(false);
       // }
