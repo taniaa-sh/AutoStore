@@ -3,20 +3,19 @@
 import Image from "next/image";
 
 function AboutPage() {
-
     return (
-        <main className="w-full mx-auto p-4 sm:p-6">
+        <main className="w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-20">
 
-            {/*Header*/}
-            <div className="mt-20 w-full">
+            {/* Header */}
+            <div className="w-full">
                 <div className="relative h-[300px] sm:h-[400px] w-full">
                     <Image
                         src={"/aboutHeader.webp"}
                         alt="about"
                         fill
-                        className="object-cover z-0"
+                        className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/60 z-10 flex items-center px-4 sm:px-10 lg:pl-20">
+                    <div className="absolute inset-0 bg-black/60 flex items-center px-4 sm:px-10 lg:pl-20">
                         <div>
                             <p className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">There’s a lot to love</p>
                             <p className="text-white text-3xl sm:text-4xl lg:text-5xl font-bold">about CarMax</p>
@@ -25,20 +24,21 @@ function AboutPage() {
                 </div>
             </div>
 
-            {/*Our purpose*/}
-            <div className="mt-10 px-[200px] text-center">
+            {/* Our purpose */}
+            <div className="mt-10 text-center">
                 <h2 className="text-3xl font-bold text-gray-600">Our purpose</h2>
                 <div className="mt-12 flex flex-col">
                     <h2 className="text-2xl sm:text-4xl font-bold text-gray-700">To drive integrity by being honest</h2>
                     <h2 className="text-2xl sm:text-4xl font-bold text-gray-700">transparent in every interaction.</h2>
                 </div>
+
                 <h2 className="text-2xl sm:text-4xl font-bold text-gray-700 mt-11">Who we are</h2>
                 <div className="mt-10 flex flex-col lg:flex-row gap-6 lg:gap-8">
                     <p className="text-gray-500 leading-6 text-justify">
-                        At CarMax, our commitment to innovation and iconic customer experiences have made us the nations largest retailer of used cars. As the original disruptor of the automotive industry, our “no-haggle” prices transformed car buying and selling from a stressful, dreaded event into the honest, straightforward experience all people deserve.
+                        At CarMax, our commitment to innovation and iconic customer experiences have made us the nation’s largest retailer of used cars. As the original disruptor of the automotive industry, our “no-haggle” prices transformed car buying and selling from a stressful, dreaded event into the honest, straightforward experience all people deserve.
                     </p>
                     <p className="text-gray-500 leading-6 text-justify">
-                        Today, our customers have the ability to buy completely on their terms, whether thats online, in the store, or using a seamless combination of both. Were committed to transparency, putting you in control, and delivering iconic car buying experiences.
+                        Today, our customers have the ability to buy completely on their terms—whether that’s online, in the store, or using a seamless combination of both. Were committed to transparency, putting you in control, and delivering iconic car buying experiences.
                     </p>
                 </div>
 
@@ -52,7 +52,7 @@ function AboutPage() {
                         <div key={i} className="flex flex-col items-center gap-2 w-32">
                             <Image
                                 src={item.src}
-                                alt="about"
+                                alt="feature"
                                 width={70}
                                 height={70}
                                 className="object-contain"
@@ -95,22 +95,22 @@ function AboutPage() {
                     ].map(({ src, reverse }, idx) => (
                         <div
                             key={idx}
-                            className={`mt-12 flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-8 items-center`}
+                            className={`mt-12 flex flex-col ${reverse ? "lg:flex-row-reverse" : "lg:flex-row"} gap-6 lg:gap-8 items-center`}
                         >
                             <Image
                                 src={src}
                                 alt=""
                                 width={700}
                                 height={500}
-                                className="rounded-xl w-full max-w-xl"
+                                className="rounded-xl w-full max-w-full sm:max-w-xl"
                             />
-                            <div className="flex flex-col gap-2">
+                            <div className="flex flex-col gap-2 px-4 sm:px-0">
                                 <div className="flex gap-2 items-center">
                                     <span className="w-10 h-3 bg-blue-600" />
                                     <p className="text-gray-700 font-semibold">Our associates</p>
                                 </div>
                                 <p className="text-justify text-gray-500 leading-6 text-sm sm:text-base">
-                                    Our success is possible because of the hard work and dedication of our 30,000+ associates nationwide. If you join our team, youll join a culture of transparency, integrity, and a focus on doing whats right for our customers and communities. Were committed to helping you innovate, grow, and shape your career in ways you haven’t even imagined.
+                                    Our success is possible because of the hard work and dedication of our 30,000+ associates nationwide. If you join our team, you’ll join a culture of transparency, integrity, and a focus on doing what’s right for our customers and communities. Were committed to helping you innovate, grow, and shape your career in ways you haven’t even imagined.
                                 </p>
                             </div>
                         </div>
