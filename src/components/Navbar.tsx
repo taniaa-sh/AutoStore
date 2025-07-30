@@ -13,7 +13,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="absolute w-full z-10 h-auto bg-slate-100 shadow">
+    <header className="fixed top-0 left-0 w-full z-10 h-auto bg-slate-100 shadow backdrop-blur-lg">
       <div className="flex items-center justify-between max-w-[1440px] mx-auto px-6 py-4">
         {/* لوگو */}
         <Link href="/" className="flex items-center gap-2">
@@ -39,6 +39,7 @@ function Navbar() {
 
         {/* منوی دسکتاپ */}
         <nav className="hidden md:flex items-center gap-8">
+          <Link href="/contactUs" className="text-blue-600 hover:underline">Contact Us</Link>
           <Link href="/about" className="text-blue-600 hover:underline">About Us</Link>
           <Link href="/shoppingCart" className="relative">
             <Image

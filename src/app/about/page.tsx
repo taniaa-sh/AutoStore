@@ -25,7 +25,7 @@ function AboutPage() {
             </div>
 
             {/* Our purpose */}
-            <div className="mt-10 text-center">
+            <div className="mt-10 text-center max-w-screen-xl mx-auto">
                 <h2 className="text-3xl font-bold text-gray-600">Our purpose</h2>
                 <div className="mt-12 flex flex-col">
                     <h2 className="text-2xl sm:text-4xl font-bold text-gray-700">To drive integrity by being honest</h2>
