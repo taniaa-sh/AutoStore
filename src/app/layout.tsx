@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="relative">
         <Navbar />
-        <div className="min-h-[700px]">
+        <div className="min-h-[700px] max-w-screen-3xl mx-auto">
           {children}
         </div>
         <ToastContainer
