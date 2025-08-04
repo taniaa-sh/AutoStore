@@ -11,11 +11,13 @@ function Navbar() {
   const cart = useCartStore((state) => state.cart);
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  // const pathname = usePathname();
+  // const specialPages = ['/about', '/contactUs', '/shoppingCart', '/signin'];
+  // const isSpecialPage = specialPages.includes(pathname);
 
   return (
     <header className="fixed top-0 left-0 w-full z-10 h-auto bg-slate-100 shadow backdrop-blur-lg">
       <div className="flex items-center justify-between max-w-[1440px] mx-auto px-6 py-4">
-        {/* لوگو */}
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.svg"
@@ -26,7 +28,6 @@ function Navbar() {
           />
         </Link>
 
-        {/* آیکن همبرگر فقط در موبایل */}
         <div className="block md:hidden" onClick={() => setIsOpen(!isOpen)}>
           <Image
             src={isOpen ? "/menuClose.png" : "/menu.png"}
@@ -37,9 +38,8 @@ function Navbar() {
           />
         </div>
 
-        {/* منوی دسکتاپ */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="/contactUs" className="text-blue-600 hover:underline">Contact Us</Link>
+          <Link href="/contactUs" className={`text-blue-600 hover:underline`}>Contact Us</Link>
           <Link href="/about" className="text-blue-600 hover:underline">About Us</Link>
           <Link href="/shoppingCart" className="relative">
             <Image

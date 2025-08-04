@@ -20,6 +20,17 @@ function ProductDetail() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const params = useParams();
   const id = params?.id as string;
+  const [position, setPosition] = useState({ x: 50, y: 50 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const {left, top, width, height} = e.currentTarget.getBoundingClientRect();    
+    const mouseX = e.clientX - left;
+    const mouseY = e.clientY - top;
+    const xPercent = (mouseX / width) * 100;
+    const yPercent = (mouseY / height) * 100;
+    setPosition({ x: xPercent, y: yPercent });
+  };
 
   const addToCart = useCartStore((state) => state.addToCart)
 
@@ -87,11 +98,24 @@ function ProductDetail() {
     <main className="bg-gradient-to-br from-blue-100 via-white to-blue-50 p-6">
       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden mt-20">
         <div className="flex flex-col md:flex-row gap-6 p-10">
-          <div className="">
+          <div
+            className="relative  overflow-hidden"
+            onMouseMove={handleMouseMove}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)} 
+            style={{ cursor: isHovering ? 'crosshair' : 'default' }}    
+          >
             <canvas
               ref={canvasRef}
-              className="rounded-xl shadow-md w-full max-w-xs md:max-w-md h-auto"
-              style={{ width: "100%", height: "auto" }}
+              className="rounded-xl shadow-md w-full h-full"
+              style={{
+                transformOrigin: `${position.x}% ${position.y}%`,
+                transform: isHovering ? 'scale(2)' : 'scale(1)',
+                transition: 'transform 0.3s ease-in-out',
+                display: 'block',
+                width: '100%',
+                height: '100%',
+              }}
             />
           </div>
           <div className="p-8 flex flex-col justify-center mx-auto">
