@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import {
     FacebookShareButton,
     TwitterShareButton,
@@ -17,6 +18,12 @@ interface ShareModalProps {
 
 export default function ShareModal({ setShowShareModal }: ShareModalProps) {
     const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
+    useEffect(() => {
+        document.body.style.overflowY = 'hidden'
+        return () => {
+            document.body.style.overflowY = 'auto'
+        }
+    }, [])
 
     return (
         <div className="flex fixed inset-0 w-full h-full bg-black/40 z-50 items-center justify-center">
