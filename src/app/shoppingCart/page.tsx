@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useCartStore } from '../../../stores/useCartStore';
+import { Plus, Minus } from 'lucide-react';
 
 function ShoppingCart() {
   const cart = useCartStore((state) => state.cart);
@@ -14,7 +15,7 @@ function ShoppingCart() {
   );
 
   return (
-    <main className="max-w-4xl mx-auto p-6">
+    <main className="max-w-4xl mx-auto p-6 flex flex-col justify-between min-h-screen">
       {cart.length === 0 ? (
         <div className="text-center mt-20 text-gray-500 text-xl h-[350px]">
           Shopping cart is empty. 🛒
@@ -24,7 +25,7 @@ function ShoppingCart() {
           <h1 className="text-2xl font-bold mb-6 text-blue-700 mt-20">
             🛒 Your shopping cart
           </h1>
-          <div className="space-y-4">
+          <div className="space-y-4 -mt-96">
             {cart.map((item) => (
               <div
                 key={item.id}
@@ -50,35 +51,37 @@ function ShoppingCart() {
                 <div className="flex flex-col md:flex-row items-center gap-2">
                   <button
                     onClick={() => decrease(item.id)}
-                    className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 text-xs md:text-base w-20"
+                    className="bg-red-500 text-white px-4 py-1 rounded hover:bg-red-600 text-xs md:text-base "
                   >
-                    delete
+                    <Minus size={16} />
                   </button>
                   <div className="rounded-xl border border-gray-300 px-4 py-1 flex items-center justify-center">
                     {item.amount}
                   </div>
                   <button
                     onClick={() => increase(item.id)}
-                    className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 text-xs md:text-base w-20"
+                    className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 text-xs md:text-base"
                   >
-                    add
+                    <Plus size={16} />
                   </button>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex justify-between items-center border-t pt-4">
-            <span className="text-base md:text-xl font-bold">
-              total amount:
-            </span>
-            <span className="text-base md:text-xl text-blue-700 font-bold">
-              ${total.toLocaleString()}
-            </span>
+          <div>
+            <div className="mt-8 flex justify-between items-center border-t pt-4">
+              <span className="text-base md:text-xl font-bold">
+                total amount:
+              </span>
+              <span className="text-base md:text-xl text-blue-700 font-bold">
+                ${total.toLocaleString()}
+              </span>
+            </div>
+            <button className="text-sm md:text-lg w-full md:w-fit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
+              Payment
+            </button>
           </div>
-          <button className="text-sm md:text-lg w-full md:w-fit bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
-            Payment
-          </button>
         </>
       )}
     </main>
