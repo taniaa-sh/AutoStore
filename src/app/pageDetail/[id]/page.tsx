@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import { useCartStore } from '../../../../stores/useCartStore';
 import { toast } from 'react-toastify';
 import ShareModal from '@/components/ShareModal';
+import NextImage from 'next/image';
 
 interface CarItemType {
   id: string;
@@ -53,6 +54,7 @@ function ProductDetail() {
   const colors = data?.available_colors || [];
   const router = useRouter();
   const [showShareModal, setShowShareModal] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
@@ -77,6 +79,27 @@ function ProductDetail() {
       })
       .catch((err) => console.error('خطا در دریافت JSON:', err));
   }, [id]);
+
+  useEffect(() => {
+    if ("Notification" in window && Notification.permission !== "granted") {
+      Notification.requestPermission();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (
+      "Notification" in window &&
+      Notification.permission === "granted" &&
+      showNotification &&
+      data?.amount && data?.amount > 0
+    ) {
+      new Notification("✅ Product is back in stock!", {
+        body: `${data.brand} ${data.model} is now available.`,
+        icon: "/car-icon.png",
+      });
+      setShowNotification(false);
+    }
+  }, [data?.amount, showNotification]);
 
   useEffect(() => {
     if (!data || !selectedColor) return;
@@ -166,16 +189,28 @@ function ProductDetail() {
               </div>
               <div className="p-8 flex flex-col justify-center mx-auto">
                 <h1 className="text-xl lg:text-3xl font-bold text-blue-700 mb-4">{data.model}</h1>
-                <p className="text-gray-700 text-xs lg:text-lg mb-2">
+                <div className="text-gray-700 text-xs lg:text-lg mb-2">
                   <span className="font-semibold">cost:</span> ${data.price_usd.toLocaleString()}
-                </p>
-                <p className="text-gray-600 mb-6 font-semibold flex flex-col gap-1">
+                </div>
+                <div className="text-gray-600 mb-6 font-semibold flex flex-col gap-1">
                   <span className="font-semibold"> inventory: {data.ratings.count}</span>
                   {
-                    data.ratings.count == 0 ? <span className="text-base font-bold text-red-600">Out of Stock</span> :
+                    data.ratings.count == 0 ?
+                      <div className="flex items-center gap-2">
+                        <span className="text-base font-bold text-red-600">Out of Stock</span>
+                        <NextImage
+                          src={showNotification ? '/notification2.png' : "/notification1.png"}
+                          alt="notification"
+                          width={25}
+                          height={25}
+                          className='cursor-pointer'
+                          onClick={() => setShowNotification(!showNotification)}
+                          title={!showNotification ? "Click to be notified when this product is back in stock." : ""}
+                        />
+                      </div> :
                       <span className={`text-xs ${data.ratings.count < 5 ? 'text-red-600' : 'text-green-600'}`}>{data.ratings.count < 5 ? 'Limited number' : 'Available in stock'}</span>
                   }
-                </p>
+                </div>
                 <button
                   disabled={data.ratings.count === 0}
                   className={`w-full lg:w-fit text-sm md:text-lg px-6 py-2 rounded-xl transition-all duration-300 text-nowrap cursor-pointer
