@@ -11,10 +11,37 @@ interface CarItemType {
   amount: number;
   price_usd: number;
   model: string;
+  brand: string;
+  year: number;
+  country: string;
+  body_type: string;
+  engine: string;
+  fuel_type: string;
+  transmission: string;
+  stock: number;
+  ratings: {
+    average: number;
+    count: number;
+  };
+  specifications: {
+    horsepower: number;
+    acceleration_0_100_kmh: number;
+    fuel_efficiency_l_per_100km: number;
+    dimensions_mm: {
+      length: number;
+      width: number;
+      height: number;
+    };
+    weight_kg: number;
+    cylinders: number;
+  };
+  features: string[];
+  available_colors: string[];
+  description: string;
+  created_at: string;
 }
 
 function ProductDetail() {
-  const colors = ['#ff0000', '#fff', '#0000ff', '#000000', '#f5a623'];
   const [selectedColor, setSelectedColor] = useState<string>('#fff');
   const [data, setData] = useState<CarItemType | null>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -22,9 +49,10 @@ function ProductDetail() {
   const id = params?.id as string;
   const [position, setPosition] = useState({ x: 50, y: 50 });
   const [isHovering, setIsHovering] = useState(false);
+  const colors = data?.available_colors || [];
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const {left, top, width, height} = e.currentTarget.getBoundingClientRect();    
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
     const mouseX = e.clientX - left;
     const mouseY = e.clientY - top;
     const xPercent = (mouseX / width) * 100;
@@ -92,22 +120,22 @@ function ProductDetail() {
     };
   }
 
-  if (!data) return <p className="text-center text-gray-500 mt-10">در حال بارگذاری...</p>;
+  if (!data) return <p className="text-center text-gray-500 mt-10">Loading...</p>;
 
   return (
     <main className="bg-gradient-to-br from-blue-100 via-white to-blue-50 p-6">
-      <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden mt-20">
+      <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden mt-20">
         <div className="flex flex-col md:flex-row gap-6 p-10">
           <div
             className="relative  overflow-hidden"
             onMouseMove={handleMouseMove}
             onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)} 
-            style={{ cursor: isHovering ? 'crosshair' : 'default' }}    
+            onMouseLeave={() => setIsHovering(false)}
+            style={{ cursor: isHovering ? 'crosshair' : 'default' }}
           >
             <canvas
               ref={canvasRef}
-              className="rounded-xl shadow-md w-full h-full"
+              className="rounded-xl shadow-md"
               style={{
                 transformOrigin: `${position.x}% ${position.y}%`,
                 transform: isHovering ? 'scale(2)' : 'scale(1)',
@@ -123,13 +151,21 @@ function ProductDetail() {
             <p className="text-gray-700 text-xs lg:text-lg mb-2">
               <span className="font-semibold">cost:</span> ${data.price_usd.toLocaleString()}
             </p>
-            <p className="text-gray-600 mb-6">
-              <span className="font-semibold">inventory:</span> {data.amount}
+            <p className="text-gray-600 mb-6 font-semibold flex flex-col gap-1">
+              <span className="font-semibold"> inventory: {data.ratings.count}</span>
+              {
+                data.ratings.count == 0 ? <span className="text-base font-bold text-red-600">Out of Stock</span> :
+                  <span className={`text-xs ${data.ratings.count < 5 ? 'text-red-600' : 'text-green-600'}`}>{data.ratings.count < 5 ? 'Limited number' : 'Available in stock'}</span>
+              }
             </p>
             <button
-              className="w-full lg:w-fit bg-blue-700 text-sm md:text-lg text-white px-6 py-2 rounded-xl hover:bg-blue-800 transition-all duration-300 text-nowrap"
+              disabled={data.ratings.count === 0}
+              className={`w-full lg:w-fit text-sm md:text-lg px-6 py-2 rounded-xl transition-all duration-300 text-nowrap cursor-pointer
+    ${data.ratings.count === 0
+                  ? 'bg-gray-400 text-white cursor-not-allowed'
+                  : 'bg-blue-700 text-white hover:bg-blue-800'}`}
               onClick={() => {
-                addToCart(data)
+                addToCart(data);
                 toast.success('The product has been added to your cart.');
               }}
             >
@@ -147,6 +183,25 @@ function ProductDetail() {
                   }}
                 />
               ))}
+            </div>
+            <div className="mt-6">
+              <h2 className="font-bold text-lg mb-2">Specifications</h2>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>Horsepower: {data.specifications.horsepower} HP</li>
+                <li>0-100 km/h: {data.specifications.acceleration_0_100_kmh}s</li>
+                <li>Fuel Efficiency: {data.specifications.fuel_efficiency_l_per_100km} L/100km</li>
+                <li>Dimensions (L×W×H): {data.specifications.dimensions_mm.length} × {data.specifications.dimensions_mm.width} × {data.specifications.dimensions_mm.height} mm</li>
+                <li>Weight: {data.specifications.weight_kg} kg</li>
+                <li>Cylinders: {data.specifications.cylinders}</li>
+              </ul>
+            </div>
+            <div className="mt-4">
+              <h2 className="font-bold text-lg mb-2">Features</h2>
+              <ul className="list-disc list-inside text-sm text-gray-700">
+                {data.features.map((feature, index) => (
+                  <li key={index}>{feature}</li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

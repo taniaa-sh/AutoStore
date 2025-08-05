@@ -10,7 +10,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 42000,
-    "image": "/2c59dabe-1a55-4fb9-a5a7-c60b5a2cccca.png"
+    "image": "/2c59dabe-1a55-4fb9-a5a7-c60b5a2cccca.png",
+    "stock": 10,
+    "ratings": {
+      "average": 4.3,
+      "count": 0
+    },
+    "specifications": {
+      "horsepower": 180,
+      "acceleration_0_100_kmh": 7.4,
+      "fuel_efficiency_l_per_100km": 6.8,
+      "dimensions_mm": {
+        "length": 4630,
+        "width": 1827,
+        "height": 1435
+      },
+      "weight_kg": 1500,
+      "cylinders": 4
+    },
+    "features": [
+      "Sunroof",
+      "Leather seats",
+      "Bluetooth",
+      "Backup camera"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "description": "BMW 320i is a sporty sedan with excellent fuel efficiency and performance.",
+    "created_at": "2023-06-01T12:00:00Z"
   },
   {
     "id": "2",
@@ -23,7 +53,37 @@
     "fuel_type": "Hybrid",
     "transmission": "CVT",
     "price_usd": 30000,
-    "image": "/2f7d6b2d-b233-4511-8988-0ecfe0050391.png"
+    "image": "/2f7d6b2d-b233-4511-8988-0ecfe0050391.png",
+    "stock": 15,
+    "ratings": {
+      "average": 4.1,
+      "count": 4
+    },
+    "specifications": {
+      "horsepower": 178,
+      "acceleration_0_100_kmh": 8.2,
+      "fuel_efficiency_l_per_100km": 5.5,
+      "dimensions_mm": {
+        "length": 4881,
+        "width": 1840,
+        "height": 1445
+      },
+      "weight_kg": 1470,
+      "cylinders": 4
+    },
+    "features": [
+      "Adaptive cruise control",
+      "Lane departure warning",
+      "Apple CarPlay",
+      "Android Auto"
+    ],
+    "available_colors": [
+      "#FFFFFF",
+      "#000000",
+      "#C0C0C0"
+    ],
+    "description": "Toyota Camry is a reliable hybrid sedan with great fuel economy.",
+    "created_at": "2023-05-15T10:00:00Z"
   },
   {
     "id": "3",
@@ -36,7 +96,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 51000,
-    "image": "/3b305472-5165-4337-b25d-e79184397945.png"
+    "image": "/3b305472-5165-4337-b25d-e79184397945.png",
+    "stock": 8,
+    "ratings": {
+      "average": 4.6,
+      "count": 18
+    },
+    "specifications": {
+      "horsepower": 255,
+      "acceleration_0_100_kmh": 6.1,
+      "fuel_efficiency_l_per_100km": 7.2,
+      "dimensions_mm": {
+        "length": 4661,
+        "width": 1890,
+        "height": 1644
+      },
+      "weight_kg": 1750,
+      "cylinders": 4
+    },
+    "features": [
+      "Panoramic sunroof",
+      "Heated seats",
+      "Navigation system",
+      "Blind spot assist"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#2E86C1"
+    ],
+    "description": "Mercedes-Benz GLC 300 combines luxury and power in a compact SUV.",
+    "created_at": "2023-04-20T08:30:00Z"
   },
   {
     "id": "4",
@@ -49,7 +139,37 @@
     "fuel_type": "Hybrid",
     "transmission": "Automatic",
     "price_usd": 29000,
-    "image": "/4d747ea1-50e2-4615-8c5f-c5b7de7071fc.png"
+    "image": "/4d747ea1-50e2-4615-8c5f-c5b7de7071fc.png",
+    "stock": 12,
+    "ratings": {
+      "average": 4.0,
+      "count": 3
+    },
+    "specifications": {
+      "horsepower": 175,
+      "acceleration_0_100_kmh": 8.5,
+      "fuel_efficiency_l_per_100km": 6.1,
+      "dimensions_mm": {
+        "length": 4485,
+        "width": 1850,
+        "height": 1650
+      },
+      "weight_kg": 1600,
+      "cylinders": 4
+    },
+    "features": [
+      "Wireless charging",
+      "Apple CarPlay",
+      "Android Auto",
+      "Lane keep assist"
+    ],
+    "available_colors": [
+      "#FFFFFF",
+      "#000000",
+      "#808080"
+    ],
+    "description": "Hyundai Tucson is a practical hybrid SUV with modern features.",
+    "created_at": "2023-05-10T11:15:00Z"
   },
   {
     "id": "5",
@@ -62,7 +182,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 55000,
-    "image": "/5a000b0c-3818-4bb4-96a9-93ea2c1fec61.png"
+    "image": "/5a000b0c-3818-4bb4-96a9-93ea2c1fec61.png",
+    "stock": 7,
+    "ratings": {
+      "average": 4.5,
+      "count": 20
+    },
+    "specifications": {
+      "horsepower": 250,
+      "acceleration_0_100_kmh": 6.5,
+      "fuel_efficiency_l_per_100km": 7.0,
+      "dimensions_mm": {
+        "length": 4688,
+        "width": 1902,
+        "height": 1658
+      },
+      "weight_kg": 1700,
+      "cylinders": 4
+    },
+    "features": [
+      "Blind spot monitoring",
+      "Heated seats",
+      "Navigation system",
+      "Voice control"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#004080"
+    ],
+    "description": "Volvo XC60 offers a balance of luxury, safety and performance.",
+    "created_at": "2023-06-05T09:20:00Z"
   },
   {
     "id": "6",
@@ -75,7 +225,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 38000,
-    "image": "/6a3e8639-f434-49fb-b225-29d6946333ff.png"
+    "image": "/6a3e8639-f434-49fb-b225-29d6946333ff.png",
+    "stock": 9,
+    "ratings": {
+      "average": 4.4,
+      "count": 28
+    },
+    "specifications": {
+      "horsepower": 190,
+      "acceleration_0_100_kmh": 7.0,
+      "fuel_efficiency_l_per_100km": 6.6,
+      "dimensions_mm": {
+        "length": 4762,
+        "width": 1847,
+        "height": 1427
+      },
+      "weight_kg": 1550,
+      "cylinders": 4
+    },
+    "features": [
+      "LED headlights",
+      "Leather seats",
+      "Bluetooth",
+      "Rearview camera"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#AAAAAA"
+    ],
+    "description": "Audi A4 is a luxury sedan with smooth handling and good performance.",
+    "created_at": "2023-04-25T14:10:00Z"
   },
   {
     "id": "7",
@@ -88,7 +268,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 25000,
-    "image": "/7a20abfa-19af-413f-b076-ad8cabef6904.png"
+    "image": "/7a20abfa-19af-413f-b076-ad8cabef6904.png",
+    "stock": 20,
+    "ratings": {
+      "average": 4.0,
+      "count": 0
+    },
+    "specifications": {
+      "horsepower": 158,
+      "acceleration_0_100_kmh": 8.3,
+      "fuel_efficiency_l_per_100km": 6.0,
+      "dimensions_mm": {
+        "length": 4649,
+        "width": 1799,
+        "height": 1416
+      },
+      "weight_kg": 1400,
+      "cylinders": 4
+    },
+    "features": [
+      "Eco mode",
+      "Bluetooth",
+      "Rearview camera",
+      "Cruise control"
+    ],
+    "available_colors": [
+      "#FFFFFF",
+      "#000000",
+      "#FFCC00"
+    ],
+    "description": "Honda Civic is a compact sedan known for reliability and fuel efficiency.",
+    "created_at": "2023-05-30T07:45:00Z"
   },
   {
     "id": "8",
@@ -101,7 +311,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 150000,
-    "image": "/7e1b846e-084f-4518-8c7c-041661d5a58b.png"
+    "image": "/7e1b846e-084f-4518-8c7c-041661d5a58b.png",
+    "stock": 3,
+    "ratings": {
+      "average": 4.8,
+      "count": 12
+    },
+    "specifications": {
+      "horsepower": 730,
+      "acceleration_0_100_kmh": 2.9,
+      "fuel_efficiency_l_per_100km": 13.0,
+      "dimensions_mm": {
+        "length": 4933,
+        "width": 2030,
+        "height": 1136
+      },
+      "weight_kg": 1575,
+      "cylinders": 8
+    },
+    "features": [
+      "Carbon fiber body",
+      "Sport exhaust",
+      "Advanced traction control",
+      "Premium audio system"
+    ],
+    "available_colors": [
+      "#FF0000",
+      "#000000",
+      "#FFFFFF"
+    ],
+    "description": "Lamborghini Aventador is a high-performance supercar with striking design.",
+    "created_at": "2023-03-10T16:00:00Z"
   },
   {
     "id": "9",
@@ -114,7 +354,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 120000,
-    "image": "/44b7e233-eaa9-493c-9dd6-dbc3ddf96358.png"
+    "image": "/44b7e233-eaa9-493c-9dd6-dbc3ddf96358.png",
+    "stock": 4,
+    "ratings": {
+      "average": 4.7,
+      "count": 10
+    },
+    "specifications": {
+      "horsepower": 661,
+      "acceleration_0_100_kmh": 3.0,
+      "fuel_efficiency_l_per_100km": 12.5,
+      "dimensions_mm": {
+        "length": 4566,
+        "width": 1952,
+        "height": 1213
+      },
+      "weight_kg": 1475,
+      "cylinders": 8
+    },
+    "features": [
+      "Aerodynamic design",
+      "High-performance brakes",
+      "Sport suspension",
+      "Premium interior"
+    ],
+    "available_colors": [
+      "#FF0000",
+      "#000000",
+      "#Yellow"
+    ],
+    "description": "Ferrari 488 GTB is a legendary supercar combining speed and luxury.",
+    "created_at": "2023-03-12T09:00:00Z"
   },
   {
     "id": "10",
@@ -127,7 +397,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 95000,
-    "image": "/501e1096-600f-4044-949e-66503a935825.png"
+    "image": "/501e1096-600f-4044-949e-66503a935825.png",
+    "stock": 6,
+    "ratings": {
+      "average": 4.6,
+      "count": 15
+    },
+    "specifications": {
+      "horsepower": 379,
+      "acceleration_0_100_kmh": 4.0,
+      "fuel_efficiency_l_per_100km": 9.5,
+      "dimensions_mm": {
+        "length": 4519,
+        "width": 1852,
+        "height": 1305
+      },
+      "weight_kg": 1500,
+      "cylinders": 6
+    },
+    "features": [
+      "Sport seats",
+      "LED headlights",
+      "Adaptive suspension",
+      "Premium sound system"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "description": "Porsche 911 is an iconic sports car with excellent handling and power.",
+    "created_at": "2023-04-01T12:30:00Z"
   },
   {
     "id": "11",
@@ -140,7 +440,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 80000,
-    "image": "/44b7e233-eaa9-493c-9dd6-dbc3ddf96358.png"
+    "image": "/44b7e233-eaa9-493c-9dd6-dbc3ddf96358.png",
+    "stock": 5,
+    "ratings": {
+      "average": 4.3,
+      "count": 9
+    },
+    "specifications": {
+      "horsepower": 345,
+      "acceleration_0_100_kmh": 5.5,
+      "fuel_efficiency_l_per_100km": 10.5,
+      "dimensions_mm": {
+        "length": 4979,
+        "width": 1948,
+        "height": 1461
+      },
+      "weight_kg": 1800,
+      "cylinders": 6
+    },
+    "features": [
+      "Premium leather interior",
+      "Sport suspension",
+      "Touchscreen infotainment",
+      "Heated seats"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#B22222"
+    ],
+    "description": "Maserati Ghibli is a luxury sedan combining performance and elegance.",
+    "created_at": "2023-03-22T14:00:00Z"
   },
   {
     "id": "12",
@@ -153,7 +483,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 250000,
-    "image": "/ae29697e-6356-4754-b754-27da4bef41bb.png"
+    "image": "/ae29697e-6356-4754-b754-27da4bef41bb.png",
+    "stock": 2,
+    "ratings": {
+      "average": 4.9,
+      "count": 5
+    },
+    "specifications": {
+      "horsepower": 1500,
+      "acceleration_0_100_kmh": 2.4,
+      "fuel_efficiency_l_per_100km": 22.0,
+      "dimensions_mm": {
+        "length": 4544,
+        "width": 2038,
+        "height": 1212
+      },
+      "weight_kg": 1995,
+      "cylinders": 16
+    },
+    "features": [
+      "Carbon fiber body",
+      "Quad turbocharged engine",
+      "Advanced aerodynamics",
+      "Luxury interior"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "description": "Bugatti Chiron is an ultra-luxury supercar with record-breaking speed.",
+    "created_at": "2023-02-28T15:45:00Z"
   },
   {
     "id": "13",
@@ -166,7 +526,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 110000,
-    "image": "/ae1f331f-fbeb-44b4-8307-aa81d3cbd0b5.png"
+    "image": "/ae1f331f-fbeb-44b4-8307-aa81d3cbd0b5.png",
+    "stock": 4,
+    "ratings": {
+      "average": 4.7,
+      "count": 14
+    },
+    "specifications": {
+      "horsepower": 602,
+      "acceleration_0_100_kmh": 2.9,
+      "fuel_efficiency_l_per_100km": 13.5,
+      "dimensions_mm": {
+        "length": 4459,
+        "width": 1924,
+        "height": 1165
+      },
+      "weight_kg": 1422,
+      "cylinders": 8
+    },
+    "features": [
+      "Rear-wheel drive",
+      "Sport exhaust",
+      "Adaptive suspension",
+      "Premium interior"
+    ],
+    "available_colors": [
+      "#FF0000",
+      "#000000",
+      "#FFFFFF"
+    ],
+    "description": "Lamborghini Huracan is a stunning sports coupe with thrilling performance.",
+    "created_at": "2023-03-15T13:10:00Z"
   },
   {
     "id": "14",
@@ -179,7 +569,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 85000,
-    "image": "/23752075-630e-49ee-8db4-08dee7765686.png"
+    "image": "/23752075-630e-49ee-8db4-08dee7765686.png",
+    "stock": 6,
+    "ratings": {
+      "average": 4.4,
+      "count": 11
+    },
+    "specifications": {
+      "horsepower": 503,
+      "acceleration_0_100_kmh": 4.0,
+      "fuel_efficiency_l_per_100km": 10.8,
+      "dimensions_mm": {
+        "length": 4760,
+        "width": 1940,
+        "height": 1280
+      },
+      "weight_kg": 1760,
+      "cylinders": 6
+    },
+    "features": [
+      "Luxury leather seats",
+      "Infotainment system",
+      "Adaptive cruise control",
+      "Blind spot monitoring"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FFD700"
+    ],
+    "description": "Aston Martin DB11 combines British luxury with sporty dynamics.",
+    "created_at": "2023-04-05T11:50:00Z"
   },
   {
     "id": "15",
@@ -192,7 +612,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 95000,
-    "image": "/08215404-f3b0-42f6-9086-bd70e7a81642.png"
+    "image": "/08215404-f3b0-42f6-9086-bd70e7a81642.png",
+    "stock": 3,
+    "ratings": {
+      "average": 4.7,
+      "count": 7
+    },
+    "specifications": {
+      "horsepower": 710,
+      "acceleration_0_100_kmh": 2.8,
+      "fuel_efficiency_l_per_100km": 11.2,
+      "dimensions_mm": {
+        "length": 4543,
+        "width": 2083,
+        "height": 1187
+      },
+      "weight_kg": 1419,
+      "cylinders": 6
+    },
+    "features": [
+      "Carbon fiber chassis",
+      "Active aerodynamics",
+      "Sport seats",
+      "Premium sound system"
+    ],
+    "available_colors": [
+      "#FF0000",
+      "#000000",
+      "#FFFFFF"
+    ],
+    "description": "McLaren 720S is a supercar delivering breathtaking speed and agility.",
+    "created_at": "2023-03-20T09:30:00Z"
   },
   {
     "id": "16",
@@ -205,7 +655,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 120000,
-    "image": "/0110210a-74e3-4f01-89c5-1ff64e582fac.png"
+    "image": "/0110210a-74e3-4f01-89c5-1ff64e582fac.png",
+    "stock": 5,
+    "ratings": {
+      "average": 4.5,
+      "count": 9
+    },
+    "specifications": {
+      "horsepower": 450,
+      "acceleration_0_100_kmh": 5.6,
+      "fuel_efficiency_l_per_100km": 12.0,
+      "dimensions_mm": {
+        "length": 5463,
+        "width": 1953,
+        "height": 1508
+      },
+      "weight_kg": 2300,
+      "cylinders": 8
+    },
+    "features": [
+      "Luxury interior",
+      "Adaptive suspension",
+      "Advanced infotainment",
+      "Heated and cooled seats"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#A52A2A"
+    ],
+    "description": "Bentley Arnage offers supreme luxury and powerful V8 performance.",
+    "created_at": "2023-04-15T14:45:00Z"
   },
   {
     "id": "17",
@@ -218,7 +698,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 180000,
-    "image": "/2029b4bd-0487-4ecc-9025-df1d63c89f70.png"
+    "image": "/2029b4bd-0487-4ecc-9025-df1d63c89f70.png",
+    "stock": 3,
+    "ratings": {
+      "average": 4.8,
+      "count": 7
+    },
+    "specifications": {
+      "horsepower": 563,
+      "acceleration_0_100_kmh": 5.2,
+      "fuel_efficiency_l_per_100km": 14.0,
+      "dimensions_mm": {
+        "length": 5341,
+        "width": 2000,
+        "height": 1835
+      },
+      "weight_kg": 2660,
+      "cylinders": 8
+    },
+    "features": [
+      "Luxury leather interior",
+      "Advanced suspension",
+      "Panoramic roof",
+      "Rear-seat entertainment"
+    ],
+    "available_colors": [
+      "#FFFFFF",
+      "#000000",
+      "#D4AF37"
+    ],
+    "description": "Rolls-Royce Cullinan is the ultimate luxury SUV with unparalleled comfort.",
+    "created_at": "2023-03-25T13:10:00Z"
   },
   {
     "id": "18",
@@ -231,7 +741,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 250000,
-    "image": "/743bbaba-8558-41bf-b4a1-0afd416f9179.png"
+    "image": "/743bbaba-8558-41bf-b4a1-0afd416f9179.png",
+    "stock": 1,
+    "ratings": {
+      "average": 5.0,
+      "count": 3
+    },
+    "specifications": {
+      "horsepower": 1500,
+      "acceleration_0_100_kmh": 2.4,
+      "fuel_efficiency_l_per_100km": 22.0,
+      "dimensions_mm": {
+        "length": 4544,
+        "width": 2038,
+        "height": 1212
+      },
+      "weight_kg": 1995,
+      "cylinders": 16
+    },
+    "features": [
+      "Carbon fiber body",
+      "Quad turbocharged engine",
+      "Advanced aerodynamics",
+      "Luxury interior"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FF0000"
+    ],
+    "description": "Bugatti Chiron is an ultra-luxury supercar with record-breaking speed.",
+    "created_at": "2023-03-05T12:00:00Z"
   },
   {
     "id": "19",
@@ -244,7 +784,37 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 110000,
-    "image": "/0110210a-74e3-4f01-89c5-1ff64e582fac.png"
+    "image": "/0110210a-74e3-4f01-89c5-1ff64e582fac.png",
+    "stock": 4,
+    "ratings": {
+      "average": 4.7,
+      "count": 14
+    },
+    "specifications": {
+      "horsepower": 602,
+      "acceleration_0_100_kmh": 2.9,
+      "fuel_efficiency_l_per_100km": 13.5,
+      "dimensions_mm": {
+        "length": 4459,
+        "width": 1924,
+        "height": 1165
+      },
+      "weight_kg": 1422,
+      "cylinders": 8
+    },
+    "features": [
+      "Rear-wheel drive",
+      "Sport exhaust",
+      "Adaptive suspension",
+      "Premium interior"
+    ],
+    "available_colors": [
+      "#FF0000",
+      "#000000",
+      "#FFFFFF"
+    ],
+    "description": "Lamborghini Huracan is a stunning sports coupe with thrilling performance.",
+    "created_at": "2023-03-15T13:10:00Z"
   },
   {
     "id": "20",
@@ -257,6 +827,36 @@
     "fuel_type": "Gasoline",
     "transmission": "Automatic",
     "price_usd": 85000,
-    "image": "/ae29697e-6356-4754-b754-27da4bef41bb.png"
+    "image": "/ae29697e-6356-4754-b754-27da4bef41bb.png",
+    "stock": 7,
+    "ratings": {
+      "average": 4.4,
+      "count": 10
+    },
+    "specifications": {
+      "horsepower": 503,
+      "acceleration_0_100_kmh": 4.0,
+      "fuel_efficiency_l_per_100km": 10.8,
+      "dimensions_mm": {
+        "length": 4760,
+        "width": 1940,
+        "height": 1280
+      },
+      "weight_kg": 1760,
+      "cylinders": 6
+    },
+    "features": [
+      "Luxury leather seats",
+      "Infotainment system",
+      "Adaptive cruise control",
+      "Blind spot monitoring"
+    ],
+    "available_colors": [
+      "#000000",
+      "#FFFFFF",
+      "#FFD700"
+    ],
+    "description": "Aston Martin DB11 combines British luxury with sporty dynamics.",
+    "created_at": "2023-04-05T11:50:00Z"
   }
 ]
