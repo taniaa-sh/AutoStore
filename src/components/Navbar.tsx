@@ -31,7 +31,7 @@ function Navbar() {
         <Link
           href="/shoppingCart"
           onClick={() => setIsOpen(false)}
-          className="flex items-center gap-2"
+          className="flex items-center gap-2 md:hidden"
         >
           <Image
             src="/shoppingIcon.png"
