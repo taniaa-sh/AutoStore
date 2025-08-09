@@ -28,6 +28,23 @@ function Navbar() {
           />
         </Link>
 
+        <Link
+          href="/shoppingCart"
+          onClick={() => setIsOpen(false)}
+          className="flex items-center gap-2"
+        >
+          <Image
+            src="/shoppingIcon.png"
+            width={24}
+            height={24}
+            alt="cart"
+            className="object-contain"
+          />
+          <span className="rounded-full bg-blue-600 text-white w-5 h-5 text-xs flex justify-center items-center">
+            {cart.map((item) => item.amount).reduce((a, b) => a + b, 0)}
+          </span>
+        </Link>
+
         <div className="block md:hidden" onClick={() => setIsOpen(!isOpen)}>
           <Image
             src={isOpen ? "/menuClose.png" : "/menu.png"}
@@ -67,22 +84,7 @@ function Navbar() {
           <Link href="/about" onClick={() => setIsOpen(false)} className="block text-blue-600">
             About Us
           </Link>
-          <Link
-            href="/shoppingCart"
-            onClick={() => setIsOpen(false)}
-            className="flex items-center gap-2"
-          >
-            <Image
-              src="/shoppingIcon.png"
-              width={24}
-              height={24}
-              alt="cart"
-              className="object-contain"
-            />
-            <span className="rounded-full bg-blue-600 text-white w-5 h-5 text-xs flex justify-center items-center">
-              {cart.map((item) => item.amount).reduce((a, b) => a + b, 0)}
-            </span>
-          </Link>
+          <Link href="/contactUs" className="block text-blue-600" onClick={() => setIsOpen(false)}>Contact Us</Link>
           <button
             onClick={() => {
               setIsOpen(false);
