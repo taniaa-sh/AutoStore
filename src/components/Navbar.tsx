@@ -6,6 +6,7 @@ import React, { useState } from 'react';
 import CustomButton from './CustomButton';
 import { useCartStore } from '../../stores/useCartStore';
 import { useRouter } from 'next/navigation';
+import SwitchBtnThreePosition2 from './SwitchBtnThreePosition2';
 
 function Navbar() {
   const cart = useCartStore((state) => state.cart);
@@ -14,6 +15,7 @@ function Navbar() {
   // const pathname = usePathname();
   // const specialPages = ['/about', '/contactUs', '/shoppingCart', '/signin'];
   // const isSpecialPage = specialPages.includes(pathname);
+  const [themeModeNumber, setThemeModeNumber] = useState<number>(1); // 1, 2, 3
 
   return (
     <header className="fixed top-0 left-0 w-full z-10 h-auto bg-slate-100 shadow backdrop-blur-lg">
@@ -85,6 +87,10 @@ function Navbar() {
             About Us
           </Link>
           <Link href="/contactUs" className="block text-blue-600" onClick={() => setIsOpen(false)}>Contact Us</Link>
+          <SwitchBtnThreePosition2
+            modeNumber={themeModeNumber}
+            onChange={(newModeNumber) => setThemeModeNumber(newModeNumber)}
+          />
           <button
             onClick={() => {
               setIsOpen(false);
