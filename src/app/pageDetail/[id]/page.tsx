@@ -9,7 +9,7 @@ import NextImage from 'next/image';
 
 interface CarItemType {
   id: string;
-  image: string
+  image: string;
   amount: number;
   price_usd: number;
   model: string;
@@ -65,7 +65,7 @@ function ProductDetail() {
     setPosition({ x: xPercent, y: yPercent });
   };
 
-  const addToCart = useCartStore((state) => state.addToCart)
+  const addToCart = useCartStore((state) => state.addToCart);
 
   useEffect(() => {
     fetch('/data/data.json')
@@ -150,152 +150,166 @@ function ProductDetail() {
 
   return (
     <>
-      {
-        showShareModal && (
-          <ShareModal setShowShareModal={setShowShareModal} />
-        )
-      }
-      <div className="bg-gradient-to-br from-blue-100 via-white to-blue-50 p-20">
-        <main>
-          <div className="max-w-7xl mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden mt-10">
-            <div className="flex justify-end p-4">
-              <button
-                onClick={() => router.push('/')}
-                className="underline text-blue-600 text-sm px-4 py-2 hover:bg-slate-200 rounded-md"
-              >
-                ← Back to Products
-              </button>
-            </div>
-            <div className="flex flex-col md:flex-row gap-6 p-10">
-              <div
-                className="relative  overflow-hidden"
-                onMouseMove={handleMouseMove}
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-                style={{ cursor: isHovering ? 'crosshair' : 'default' }}
-              >
-                <canvas
-                  ref={canvasRef}
-                  className="rounded-xl shadow-md"
-                  style={{
-                    transformOrigin: `${position.x}% ${position.y}%`,
-                    transform: isHovering ? 'scale(2)' : 'scale(1)',
-                    transition: 'transform 0.3s ease-in-out',
-                    display: 'block',
-                    width: '100%',
-                    height: '100%',
-                  }}
-                />
-              </div>
-              <div className="p-8 flex flex-col justify-center mx-auto">
-                <h1 className="text-xl lg:text-3xl font-bold text-blue-700 mb-4">{data.model}</h1>
-                <div className="text-gray-700 text-xs lg:text-lg mb-2">
-                  <span className="font-semibold">cost:</span> ${data.price_usd.toLocaleString()}
-                </div>
-                <div className="text-gray-600 mb-6 font-semibold flex flex-col gap-1">
-                  <span className="font-semibold"> inventory: {data.ratings.count}</span>
-                  {
-                    data.ratings.count == 0 ?
-                      <div className="flex items-center gap-2">
-                        <span className="text-base font-bold text-red-600">Out of Stock</span>
-                        <NextImage
-                          src={showNotification ? '/notification2.png' : "/notification1.png"}
-                          alt="notification"
-                          width={25}
-                          height={25}
-                          className='cursor-pointer'
-                          onClick={() => setShowNotification(!showNotification)}
-                          title={!showNotification ? "Click to be notified when this product is back in stock." : ""}
-                        />
-                      </div> :
-                      <span className={`text-xs ${data.ratings.count < 5 ? 'text-red-600' : 'text-green-600'}`}>{data.ratings.count < 5 ? 'Limited number' : 'Available in stock'}</span>
-                  }
-                </div>
-                <button
-                  disabled={data.ratings.count === 0}
-                  className={`w-full lg:w-fit text-sm md:text-lg px-6 py-2 rounded-xl transition-all duration-300 text-nowrap cursor-pointer
-    ${data.ratings.count === 0
-                      ? 'bg-gray-400 text-white !cursor-not-allowed'
-                      : 'bg-blue-700 text-white hover:bg-blue-800'}`}
-                  onClick={() => {
-                    addToCart(data);
-                    toast.success('The product has been added to your cart.');
-                  }}
-                >
-                  Add to cart
-                </button>
-                <div className="flex space-x-2 mt-4">
-                  {colors.map((color) => (
-                    <button
-                      key={color}
-                      onClick={() => setSelectedColor(color)}
-                      className="w-6 h-6 rounded-full border-2"
-                      style={{
-                        backgroundColor: color,
-                        borderColor: '#ccc',
-                      }}
-                    />
-                  ))}
-                </div>
-                <div className="mt-6">
-                  <h2 className="font-bold text-lg mb-2">Specifications</h2>
-                  <ul className="text-sm text-gray-700 space-y-1">
-                    <li>Horsepower: {data.specifications.horsepower} HP</li>
-                    <li>0-100 km/h: {data.specifications.acceleration_0_100_kmh}s</li>
-                    <li>Fuel Efficiency: {data.specifications.fuel_efficiency_l_per_100km} L/100km</li>
-                    <li>Dimensions (L×W×H): {data.specifications.dimensions_mm.length} × {data.specifications.dimensions_mm.width} × {data.specifications.dimensions_mm.height} mm</li>
-                    <li>Weight: {data.specifications.weight_kg} kg</li>
-                    <li>Cylinders: {data.specifications.cylinders}</li>
-                  </ul>
-                </div>
-                <div className="mt-4">
-                  <h2 className="font-bold text-lg mb-2">Features</h2>
-                  <ul className="list-disc list-inside text-sm text-gray-700">
-                    {data.features.map((feature, index) => (
-                      <li key={index}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <p
-              className='text-xl font-bold p-2 ml-4 underline text-sky-500 !cursor-pointer'
-              onClick={() => setShowShareModal(true)}
+      {showShareModal && <ShareModal setShowShareModal={setShowShareModal} />}
+      <div className="bg-gradient-to-br from-blue-100 via-white to-blue-50 p-4 md:p-10 lg:p-20">
+        <div className="max-w-[1300px] mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden mt-5 md:mt-10">
+          {/* back button */}
+          <div className="flex justify-end p-4">
+            <button
+              onClick={() => router.push('/')}
+              className="underline text-blue-600 text-xs md:text-sm px-3 py-1 md:px-4 md:py-2 hover:bg-slate-200 rounded-md"
             >
-              Do you want to share this product?
-            </p>
+              ← Back to Products
+            </button>
           </div>
-        </main>
-        <div className="max-w-7xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md">
-          <h2 className="text-2xl font-bold mb-4 text-blue-700">User Reviews & Ratings</h2>
 
-          <div className="flex items-center gap-2 mb-6">
-            <p className="text-lg font-semibold">Average Rating:</p>
+          {/* main section */}
+          <div className="flex flex-col lg:flex-row gap-6 py-6 md:py-10">
+            {/* image & canvas */}
+            <div
+              className="relative overflow-hidden w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[700px] xl:max-w-[800px] mx-auto my-auto"
+              onMouseMove={handleMouseMove}
+              onMouseEnter={() => setIsHovering(true)}
+              onMouseLeave={() => setIsHovering(false)}
+              style={{ cursor: isHovering ? 'crosshair' : 'default' }}
+            >
+              <canvas
+                ref={canvasRef}
+                className="rounded-xl"
+                style={{
+                  transformOrigin: `${position.x}% ${position.y}%`,
+                  transform: isHovering ? 'scale(2)' : 'scale(1)',
+                  transition: 'transform 0.3s ease-in-out',
+                  display: 'block',
+                  width: '100%',
+                  height: 'auto',
+                }}
+              />
+            </div>
+
+
+            {/* details */}
+            <div className="p-4 md:p-8 flex flex-col justify-center mx-auto w-full max-w-lg">
+              <h1 className="text-lg md:text-2xl lg:text-3xl font-bold text-blue-700 mb-4">{data.model}</h1>
+              <div className="text-gray-700 text-xs md:text-lg mb-2">
+                <span className="font-semibold">Cost:</span> ${data.price_usd.toLocaleString()}
+              </div>
+              <div className="text-gray-600 mb-6 font-semibold flex flex-col gap-1">
+                <span className="font-semibold">Inventory: {data.ratings.count}</span>
+                {data.ratings.count == 0 ? (
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm md:text-base font-bold text-red-600">Out of Stock</span>
+                    <NextImage
+                      src={showNotification ? '/notification2.png' : "/notification1.png"}
+                      alt="notification"
+                      width={25}
+                      height={25}
+                      className="cursor-pointer"
+                      onClick={() => setShowNotification(!showNotification)}
+                      title={!showNotification ? "Click to be notified when this product is back in stock." : ""}
+                    />
+                  </div>
+                ) : (
+                  <span className={`text-xs ${data.ratings.count < 5 ? 'text-red-600' : 'text-green-600'}`}>
+                    {data.ratings.count < 5 ? 'Limited number' : 'Available in stock'}
+                  </span>
+                )}
+              </div>
+
+              {/* add to cart */}
+              <button
+                disabled={data.ratings.count === 0}
+                className={`w-full lg:w-fit text-xs md:text-lg px-4 md:px-6 py-2 rounded-xl transition-all duration-300 text-nowrap cursor-pointer
+                ${data.ratings.count === 0
+                    ? 'bg-gray-400 text-white !cursor-not-allowed'
+                    : 'bg-blue-700 text-white hover:bg-blue-800'}`}
+                onClick={() => {
+                  addToCart(data);
+                  toast.success('The product has been added to your cart.');
+                }}
+              >
+                Add to cart
+              </button>
+
+              {/* color selection */}
+              <div className="flex space-x-2 mt-4">
+                {colors.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className="w-6 h-6 rounded-full border-2"
+                    style={{
+                      backgroundColor: color,
+                      borderColor: '#ccc',
+                    }}
+                  />
+                ))}
+              </div>
+
+              {/* specifications */}
+              <div className="mt-6">
+                <h2 className="font-bold text-base md:text-lg mb-2">Specifications</h2>
+                <ul className="text-xs md:text-sm text-gray-700 space-y-1">
+                  <li>Horsepower: {data.specifications.horsepower} HP</li>
+                  <li>0-100 km/h: {data.specifications.acceleration_0_100_kmh}s</li>
+                  <li>Fuel Efficiency: {data.specifications.fuel_efficiency_l_per_100km} L/100km</li>
+                  <li>Dimensions (L×W×H): {data.specifications.dimensions_mm.length} × {data.specifications.dimensions_mm.width} × {data.specifications.dimensions_mm.height} mm</li>
+                  <li>Weight: {data.specifications.weight_kg} kg</li>
+                  <li>Cylinders: {data.specifications.cylinders}</li>
+                </ul>
+              </div>
+
+              {/* features */}
+              <div className="mt-4">
+                <h2 className="font-bold text-base md:text-lg mb-2">Features</h2>
+                <ul className="list-disc list-inside text-xs md:text-sm text-gray-700">
+                  {data.features.map((feature, index) => (
+                    <li key={index}>{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* share */}
+          <p
+            className="text-sm md:text-xl font-bold p-2 ml-4 underline text-sky-500 cursor-pointer"
+            onClick={() => setShowShareModal(true)}
+          >
+            Do you want to share this product?
+          </p>
+        </div>
+
+        {/* reviews */}
+        <div className="max-w-7xl mx-auto mt-6 md:mt-10 bg-white p-4 md:p-6 rounded-2xl shadow-md">
+          <h2 className="text-lg md:text-2xl font-bold mb-4 text-blue-700">User Reviews & Ratings</h2>
+
+          <div className="flex flex-wrap items-center gap-2 mb-6">
+            <p className="text-sm md:text-lg font-semibold">Average Rating:</p>
             <div className="flex items-center">
               {Array.from({ length: 5 }).map((_, i) => (
-                <span key={i} className={`text-xl ${i < Math.round(data.ratings.average) ? 'text-yellow-400' : 'text-gray-300'}`}>★</span>
+                <span key={i} className={`text-base md:text-xl ${i < Math.round(data.ratings.average) ? 'text-yellow-400' : 'text-gray-300'}`}>★</span>
               ))}
             </div>
-            <span className="ml-2 text-gray-600 text-sm">({data.ratings.count} reviews)</span>
+            <span className="text-gray-600 text-xs md:text-sm">({data.ratings.count} reviews)</span>
           </div>
 
           <form
             onSubmit={(e) => {
               e.preventDefault();
               toast.success("✅ Your review has been submitted (not really saved)");
-              //fixme
             }}
             className="space-y-4"
           >
             <textarea
-              className="w-full border border-gray-300 rounded-lg p-3 text-sm"
+              className="w-full border border-gray-300 rounded-lg p-3 text-xs md:text-sm"
               placeholder="Write your review here..."
               required
             />
-            <div className="flex items-center gap-2">
-              <label className="text-sm font-medium">Your Rating:</label>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+              <label className="text-xs md:text-sm font-medium">Your Rating:</label>
               <select
-                className="border border-gray-300 rounded-md p-1 text-sm"
+                className="border border-gray-300 rounded-md p-1 text-xs md:text-sm"
                 required
               >
                 <option value="">Select</option>
@@ -306,31 +320,31 @@ function ProductDetail() {
             </div>
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm"
+              className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-xs md:text-sm"
             >
               Submit Review
             </button>
           </form>
 
-          <div className="mt-8 space-y-4">
+          {/* existing reviews */}
+          <div className="mt-6 md:mt-8 space-y-4">
             <div className="border rounded-lg p-3 bg-slate-50">
               <div className="flex items-center justify-between mb-1">
-                <p className="font-semibold text-sm">Ali Rezaei</p>
-                <div className="text-yellow-400 text-sm">★★★★☆</div>
+                <p className="font-semibold text-xs md:text-sm">Ali Rezaei</p>
+                <div className="text-yellow-400 text-xs md:text-sm">★★★★☆</div>
               </div>
-              <p className="text-gray-600 text-sm">Very smooth ride. Fuel efficiency is excellent!</p>
+              <p className="text-gray-600 text-xs md:text-sm">Very smooth ride. Fuel efficiency is excellent!</p>
             </div>
 
             <div className="border rounded-lg p-3 bg-slate-50">
               <div className="flex items-center justify-between mb-1">
-                <p className="font-semibold text-sm">Sara M.</p>
-                <div className="text-yellow-400 text-sm">★★★★★</div>
+                <p className="font-semibold text-xs md:text-sm">Sara M.</p>
+                <div className="text-yellow-400 text-xs md:text-sm">★★★★★</div>
               </div>
-              <p className="text-gray-600 text-sm">I love the design and performance!</p>
+              <p className="text-gray-600 text-xs md:text-sm">I love the design and performance!</p>
             </div>
           </div>
         </div>
-
       </div>
     </>
   );

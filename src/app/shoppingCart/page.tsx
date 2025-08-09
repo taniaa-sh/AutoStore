@@ -22,20 +22,20 @@ function ShoppingCart() {
         </div>
       ) : (
         <>
-          <h1 className="text-2xl font-bold mb-6 text-blue-700 mt-20">
+          <h1 className="text-2xl font-bold text-blue-700 mt-20">
             🛒 Your shopping cart
           </h1>
           <div className="space-y-4 -mt-96">
             {cart.map((item) => (
               <div
                 key={item.id}
-                className="flex items-center justify-between bg-white shadow rounded-xl p-4"
+                className="flex items-center justify-between bg-white shadow rounded-xl p-4 mt-36"
               >
                 <div className="flex items-center gap-4">
                   <Image
                     src={item.image}
                     alt={item.model}
-                    width={100}
+                    width={400}
                     height={60}
                     className="rounded-md"
                   />
