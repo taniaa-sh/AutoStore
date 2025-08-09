@@ -31,13 +31,13 @@ function ShoppingCart() {
                 key={item.id}
                 className="flex items-center justify-between bg-white shadow rounded-xl p-4 mt-36"
               >
-                <div className="flex items-center gap-4">
+                <div className="flex flex-col sm:flex-row items-center gap-1">
                   <Image
                     src={item.image}
                     alt={item.model}
                     width={400}
                     height={60}
-                    className="rounded-md"
+                    className="rounded-md w-[200px] md:w-[400px]"
                   />
                   <div>
                     <h2 className="text-base md:text-lg font-semibold">
