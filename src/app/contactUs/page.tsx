@@ -38,7 +38,7 @@ function ContactUs() {
     return (
         <div className='flex flex-col gap-20 pt-0'>
             <Image
-                src="/backgound.jpg"
+                src="/contactHeader.png"
                 alt="contactUs"
                 width={1440}
                 height={200}
