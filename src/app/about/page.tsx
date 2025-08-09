@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function AboutPage() {
     return (
-        <main className="w-full mx-auto px-4 sm:px-6 lg:px-10 xl:px-20">
+        <main className="w-full mx-auto">
 
             {/* Header */}
             <div className="w-full">
@@ -33,7 +33,7 @@ function AboutPage() {
                 </div>
 
                 <h2 className="text-2xl sm:text-4xl font-bold text-gray-700 mt-11">Who we are</h2>
-                <div className="mt-10 flex flex-col lg:flex-row gap-6 lg:gap-8">
+                <div className="mt-10 flex flex-col lg:flex-row gap-6 lg:gap-8 px-6">
                     <p className="text-gray-500 leading-6 text-justify">
                         At CarMax, our commitment to innovation and iconic customer experiences have made us the nation’s largest retailer of used cars. As the original disruptor of the automotive industry, our “no-haggle” prices transformed car buying and selling from a stressful, dreaded event into the honest, straightforward experience all people deserve.
                     </p>
